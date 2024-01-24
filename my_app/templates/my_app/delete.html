@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confirmation Page</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        a, input[type="submit"] {
+            display: inline-block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        a {
+            background-color: #007BFF;
+        }
+
+        input[type="submit"] {
+            background-color: #DC3545;
+            border: none;
+        }
+
+        a:hover, input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Are you sure to delete "{{ item }}"?</p>
+
+    <a href="{% url 'home' %}">No</a>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="submit" value="Yes">
+    </form>
+
+</body>
+</html>
